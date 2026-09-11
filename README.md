@@ -147,7 +147,7 @@ The bot automatically filters non-adoption content.
 To request adding your shelter, please:
 - Open a **GitHub Issue** in this repository  
   **or**
-- Contact the project owner via email 📧 **angela.rossi393@gmail.com**
+- Contact the project owner via email 📧 **angieoppenheimer@protonmail.com**
 
 Include:
 - Shelter name
