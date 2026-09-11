@@ -161,11 +161,32 @@ def translate_all(text: str):
     except Exception:
         lang = "en"
 
-    en = GoogleTranslator(source=lang, target="en").translate(text)
-    it = GoogleTranslator(source="en", target="it").translate(en)
-    es = GoogleTranslator(source="en", target="es").translate(en)
-    fr = GoogleTranslator(source="en", target="fr").translate(en)
-    de = GoogleTranslator(source="en", target="de").translate(en)
+    # Gestione sicura per ogni singola lingua
+    try:
+        en = GoogleTranslator(source=lang, target="en").translate(text)
+    except Exception as e:
+        print(f"[WARN] Traduzione in EN fallita per '{text}': {e}")
+        en = text
+
+    try:
+        it = GoogleTranslator(source="en", target="it").translate(en)
+    except Exception:
+        it = text
+
+    try:
+        es = GoogleTranslator(source="en", target="es").translate(en)
+    except Exception:
+        es = text
+
+    try:
+        fr = GoogleTranslator(source="en", target="fr").translate(en)
+    except Exception:
+        fr = text
+
+    try:
+        de = GoogleTranslator(source="en", target="de").translate(en)
+    except Exception:
+        de = text
 
     return en, it, es, fr, de, lang
 
